@@ -5,12 +5,12 @@ session_start();
 
 if (!isset($_SESSION['dados_user']['nome'])) {
     header(header: 'Location: index.php');
-    exit; // Stop further execution after redirect
+    exit; // Se o utilizador não tiver definido um nome, ele será redirecionado para a página index.php
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['enviar'])) {
     header(header: 'Location: envia_mensagem.php');
-    exit;
+    exit; // Envia a mensagem do utilizador para ser processada no envia_mensagem.php
 }
 
 ?>

@@ -5,7 +5,7 @@ session_start();
 
 if (isset($_SESSION['dados_user']['nome'])) {
     header(header: 'Location: escrever_mensagem.php');
-}
+} // Caso o utilizador já tenha um nome definido, redireciona-o para a página de envio de mensagens
 
 ?>
 

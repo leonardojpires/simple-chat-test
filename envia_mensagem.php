@@ -3,17 +3,19 @@
 session_name(name: 'chat_teste');
 session_start();
 
-require_once 'caminho.php';
+date_default_timezone_set(timezoneId: "Europe/Lisbon");
 
-$nomeOld = $_SESSION['nome_old'];
-$nomeNew = $_SESSION['dados_user']['nome'];
+require_once 'caminho.php'; // Ficheiro que contém o caminho do ficheiro de database
+
+$nomeOld = $_SESSION['nome_old']; // Guarda o nome antigo
+$nomeNew = $_SESSION['dados_user']['nome']; // Guarda o novo nome
 $id = $_SESSION['dados_user']['id'];
-$tempo = time();
+$tempo = time(); // Serve como o identificador único de cada mensagem | Podes usar para mostrar a hora em que foi escrito
 
 $nome = str_replace(search: '#', replace: '-', subject: $nomeNew);
 $mensagem = str_replace(search: '#', replace: '-', subject: $_POST['mensagem']);
 
-$geral = $id . '#' . $nome . '#' . $mensagem . '#' . $tempo . PHP_EOL;
+$geral = $id . '#' . $nome . '#' . $mensagem . '#' . $tempo . '#' . date(format: "h:i:s d-m-Y") . PHP_EOL;
 
 $ficheiro_dados = fopen(filename: $caminho, mode: 'a');
 

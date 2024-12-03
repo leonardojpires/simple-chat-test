@@ -10,7 +10,7 @@
     }
 
     $ficheiro_dados = fopen(filename: $caminho, mode: 'r');
-    $mensagens = array();
+    $mensagens = [];
 
     while (!feof(stream: $ficheiro_dados)) {
         $registro = fgets(stream: $ficheiro_dados);
@@ -59,7 +59,7 @@
     <?php if (!empty($mensagens)) { ?>
         <?php foreach($mensagens as $mensagem) { ?>
             <div>
-                <p><b><?= $mensagem[1] . ' enviou:'?></b></p>
+                <p><b><?= $mensagem[1]?> </b><small><i><?= $mensagem[4] ?></i></small></p>
                 <p><?= $mensagem[2] ?></p>
                 <?php if($_SESSION['dados_user']['id'] == $mensagem[0]) { ?>
                     <form action="remover_mensagem.php" method="POST">
