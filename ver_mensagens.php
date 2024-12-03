@@ -61,7 +61,7 @@
             <div>
                 <p><b><?= $mensagem[1]?> </b><small><i><?= $mensagem[4] ?></i></small></p>
                 <p><?= $mensagem[2] ?></p>
-                <?php if($_SESSION['dados_user']['id'] == $mensagem[0]) { ?>
+                <?php if($_SESSION['dados_user']['id'] == $mensagem[0] || ($_SESSION['dados_user']['admin'] ?? false)) { ?>
                     <form action="remover_mensagem.php" method="POST">
                         <input type="hidden" name="user_id" value="<?= htmlspecialchars(string: $mensagem[0]) ?>">
                         <input type="hidden" name="timestamp" value="<?= htmlspecialchars(string: $mensagem[3]) ?>">
