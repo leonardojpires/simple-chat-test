@@ -1,6 +1,5 @@
 <?php
 
-session_name(name: 'chat_teste');
 unset($_SESSION['nome']);
 session_start();
 

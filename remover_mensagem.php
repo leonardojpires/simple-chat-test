@@ -1,6 +1,5 @@
 <?php
 
-session_name(name: 'chat_teste');
 session_start();
 
 require 'caminho.php';
