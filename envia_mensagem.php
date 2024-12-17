@@ -12,9 +12,9 @@ $id = $_SESSION['dados_user']['id'];
 $tempo = time(); // Serve como o identificador único de cada mensagem | Podes usar para mostrar a hora em que foi escrito
 
 $nome = str_replace(search: '#', replace: '-', subject: $nomeNew);
-$mensagem = str_replace(["#", "\r", "\n"],['-', '', '<br>'], subject: $_POST['mensagem']);
+$mensagem = str_replace(search: ["#"],replace: ['-'], subject: $_POST['mensagem']);
 
-$geral = $id . '#' . $nome . '#' . $mensagem . '#' . $tempo . '#' . date(format: "h:i:s d-m-Y") . PHP_EOL;
+$geral = "\n" .$id . '#' . $nome . '#' . $mensagem . '#' . $tempo . '#' . date(format: "h:i:s d-m-Y") . '<br>' . PHP_EOL;
 
 $ficheiro_dados = fopen(filename: $caminho, mode: 'a');
 
